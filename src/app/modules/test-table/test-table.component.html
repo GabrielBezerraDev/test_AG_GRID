@@ -4,25 +4,21 @@
       <ng-template pTemplate="caption">
           <div class=" d-flex teste align-items-center justify-content-between">
               <h4>Products</h4>
-              <p-button icon="pi pi-refresh"></p-button>
+              <i class="bi bi-arrow-clockwise"></i>
           </div>
       </ng-template>
       <ng-template pTemplate="header">
           <tr>
               <th>Name</th>
               <th>Price</th>
-              <th>Category</th>
               <th>Reviews</th>
               <th>Status</th>
+              <th></th>
           </tr>
       </ng-template>
       <ng-template class="p-3" pTemplate="body" let-listaQuartos>
           <tr>
-              <td>{{listaQuartos.nome}}</td>
-             <!-- <td><img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image" [alt]="product.name" width="100" class="shadow-4" /></td>-->
-              <td>{{listaQuartos.price}}</td>
-              <td><p-rating ([ngModel])="valueRating" [readonly]="true" [cancel]="false"></p-rating></td>
-              <td><p-tag [value]="'cu'" [severity]="statusReserva"></p-tag></td>
+            <app-row-table [rowData]="listaQuartos"></app-row-table>
           </tr>
       </ng-template>
       <ng-template pTemplate="summary">

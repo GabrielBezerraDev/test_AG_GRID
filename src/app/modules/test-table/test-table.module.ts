@@ -6,11 +6,13 @@ import { ButtonModule } from 'primeng/button';
 import { TagModule } from  'primeng/tag'
 import { TestTableRoutingModule } from './test-table-routing.module';
 import { TestTableComponent } from './test-table.component';
+import { RowTableComponent } from './components/row-table/row-table.component';
 
 
 @NgModule({
   declarations: [
-    TestTableComponent
+    TestTableComponent,
+    RowTableComponent
   ],
   imports: [
     CommonModule,
