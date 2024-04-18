@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TableComponent } from '../../../component/table/table.component';
+import { TableComponent } from '../../../../component/table/table.component';
 
 @Component({
   selector: 'app-page-home',

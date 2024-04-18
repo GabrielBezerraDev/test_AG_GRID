@@ -5,11 +5,15 @@ export const routes: Routes =
   {
     path: "",
     pathMatch: "full",
-    redirectTo: "home"
+    redirectTo: "test-table"
   }
   ,
   {
     path: "home",
-    loadChildren: () => import("./home/home.module").then(m => m.HomeModule)
+    loadChildren: () => import("./modules/home/home.module").then(m => m.HomeModule)
+  },
+  {
+    path: "test-table",
+    loadChildren: () => import("./modules/test-table/test-table.module").then(m => m.TestTableModule)
   }
 ];
