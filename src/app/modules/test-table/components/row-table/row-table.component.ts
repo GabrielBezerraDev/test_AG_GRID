@@ -9,13 +9,15 @@ import { IQuarto } from '../../test-table.component';
 export class RowTableComponent {
 
   @Input() rowData: IQuarto;
-  @Input() statusReserva: string = this;
+  // @Input() statusReserva: string = this;
   public valueRating: number = 0;
 
 
   public changeRoomStatus():void{
 
   }
+
+
 
 }
 

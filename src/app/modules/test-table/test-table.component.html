@@ -2,7 +2,7 @@
   <div class="table">
     <p-table class="p-3" [value]="listaQuartos" [tableStyle]="{'min-width': '60rem'}">
       <ng-template pTemplate="caption">
-          <div class=" d-flex teste align-items-center justify-content-between">
+          <div  class=" d-flex teste align-items-center justify-content-between">
               <h4>Products</h4>
               <i class="bi bi-arrow-clockwise"></i>
           </div>
@@ -18,7 +18,15 @@
       </ng-template>
       <ng-template class="p-3" pTemplate="body" let-listaQuartos>
           <tr>
-            <app-row-table [rowData]="listaQuartos"></app-row-table>
+            <td>{{listaQuartos.nome}}</td>
+            <td>{{listaQuartos.price}}</td>
+            <td><p-rating ([ngModel])="valueRating" [readonly]="true" [cancel]="false"></p-rating></td>
+            <td><p-tag [value]="listaQuartos.status" [severity]="styleStatus(listaQuartos.status)"></p-tag></td>
+            <td>
+                <p-button [ngStyle]="{'visibility': listaQuartos.status === 'RESERVADO' ? 'hidden' : 'visible'}" (onClick)="teste(listaQuartos)">
+                  Confirmar Reserva
+                </p-button>
+            </td>
           </tr>
       </ng-template>
       <ng-template pTemplate="summary">

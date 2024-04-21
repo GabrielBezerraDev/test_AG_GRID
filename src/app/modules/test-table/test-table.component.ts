@@ -1,19 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
-type RESERVADO = "RESERVADO";
-type DISPONIVEL = "DISPONÍVEL";
+type Status = "RESERVADO" | "DISPONÍVEL";
 export interface IQuarto{
   nome: string;
   quartos: number;
   banheiros: number;
   price: string;
-  status: IStatus;
+  status: Status;
 }
 
-export interface IStatus{
-  reservado: RESERVADO;
-  disponivel: DISPONIVEL;
-}
 
 
 
@@ -30,12 +25,28 @@ export class TestTableComponent implements OnInit {
   }
 
   public listaQuartos: IQuarto[] = [];
-  
+  public valueRating: number = 3;
+  public status:  Array<Status> = ["RESERVADO","DISPONÍVEL"];
+
+  public teste(quarto:IQuarto):void{
+    quarto.status = "RESERVADO";
+  }
 
   // Função para gerar um preço aleatório entre 500 e 2000 reais
   public gerarPrecoAleatorio(): string {
     const preco = Math.floor(Math.random() * (2000 - 500 + 1)) + 500;
     return `R$ ${preco},00`;
+  }
+
+  public styleStatus(status:string):string{
+    switch(status){
+      case "DISPONÍVEL":
+        return "success";
+      case "RESERVADO":
+        return "danger"
+      default:
+        return "danger"
+    }
   }
 
 
@@ -52,10 +63,7 @@ export class TestTableComponent implements OnInit {
       const quartos = Math.floor(Math.random() * 5) + 1;
       const banheiros = Math.floor(Math.random() * 3) + 1;
       const price = this.gerarPrecoAleatorio();
-      const status: IStatus = {
-        reservado: "RESERVADO",
-        disponivel: "DISPONÍVEL"
-      };
+      const status: Status = this.status[Math.floor(Math.random()*this.status.length)];
 
       const quarto: IQuarto = {
         nome,
